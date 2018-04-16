@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "12648158704",
+    "firebase_url": "https://voptimizer-5e573.firebaseio.com",
+    "project_id": "voptimizer-5e573",
+    "storage_bucket": "voptimizer-5e573.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12648158704:android:5c769df38587c642",
+        "android_client_info": {
+          "package_name": "com.valentinfilatov.voptimizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12648158704-hajfginfch87ojp6tn1p8bp4bllt9q56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valentinfilatov.voptimizer",
+            "certificate_hash": "2da9f4629743a5571b98b587490c036f55433cd5"
+          }
+        },
+        {
+          "client_id": "12648158704-ktamaq3cb99mk1ab6j48pm7lrjs42u9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAajIvh8z1EzVaZXzFvvm9HxmrUl0gviV4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12648158704-ktamaq3cb99mk1ab6j48pm7lrjs42u9b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
