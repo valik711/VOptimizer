@@ -1,13 +1,12 @@
 package com.valentinfilatov.voptimizer;
 
 import android.app.ActivityManager;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -61,5 +60,23 @@ public class MainActivity extends AppCompatActivity {
         Intent startServiceIntent = new Intent(this, GpsService.class);
         startServiceIntent.putExtra("username", mAuth.getCurrentUser().getEmail());
         if(!isServiceRunning(GpsService.class))startService(startServiceIntent);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) { //TODO: not sure about return type
+        switch (item.getItemId()){
+            case R.id.add_street:
+                Intent i = new Intent(this, AddStreetActivity.class);
+                startActivity(i);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) { //TODO: not sure about return type
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
