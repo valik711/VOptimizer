@@ -7,10 +7,13 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import static android.content.ContentValues.TAG;
 
@@ -51,6 +54,20 @@ public class GpsService extends Service {
         notification.flags = Notification.FLAG_ONGOING_EVENT;
 
         mNotificationManager.notify(1, notification);
+
+        LocationManager locationManager = (LocationManager)
+                getSystemService(Context.LOCATION_SERVICE);
+        LocationListener locationListener = new GpsLocationListener();
+
+        locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER, 3000, 20, locationListener);
+
+        CoordsBus.instanceOf().getEvents().subscribe(a -> Log.d(TAG, String.format("lat: %f lng: %f", a.getLatitude(), a.getLongitude())));
+        CoordsBus.instanceOf().getEvents().subscribe(a -> {
+            mBuilder.setContentText(String.format("lat: %f lng: %f", a.getLatitude(), a.getLongitude()));
+            mNotificationManager.notify(1, mBuilder.build());
+        });
+
 
         return super.onStartCommand(intent, flags, startId);
     }

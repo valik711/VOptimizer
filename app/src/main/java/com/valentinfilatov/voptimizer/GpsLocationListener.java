@@ -12,12 +12,9 @@ import com.valentinfilatov.voptimizer.Adapters.StreetCoordRVAdapter;
 
 public class GpsLocationListener implements LocationListener {
 
-
-
     @Override
     public void onLocationChanged(Location loc) {
-        //editLocation.setText("");
-
+        CoordsBus.instanceOf().pushCoordinate(loc);
     }
 
     @Override
